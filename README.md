@@ -19,4 +19,6 @@ pip install -r requirements.txt
 2. Connect to the server
 3. Grant privileges to `give`: `/grant <player> give`
 4. Use `/give <player> computertest:turtle` to give a turtle to a player
-5. cd to examples and run `python run_turtle.py`
+5. cd to examples and open run_turtle.py
+6. Change playername and password or set Minetest() without arguments if you connect to localserver
+7. Run `python run_turtle.py`
