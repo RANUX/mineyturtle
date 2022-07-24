@@ -14,12 +14,16 @@ print("Connected to", mt)
 mt.chat.send_to_all("Turtle start")
 playerPos = mt.player[0].position
 
-turtle = Turtle(mt, 1)
+turtle = Turtle(mt, 1, batch_mode=True)
+
+print("Turtle position:", turtle.position)
+print("Get loc relative:", turtle.get_loc_relative(10, 10, 10))
 
 def mine_forward_blocks(n):
     for _ in range(n):
         turtle.mine_forward()
         turtle.forward()
+        print("Turtle running: ", turtle.is_running())
 
 def mine_backward_blocks(n):
     for _ in range(n):
@@ -34,9 +38,11 @@ def build_block_around():
     turtle.build_up()
     turtle.build_down()
 
-
-mine_forward_blocks(20)
-mine_backward_blocks(20)
+print("Turtle running: ", turtle.is_running())
+turtle.right()
+mine_forward_blocks(10)
+mine_backward_blocks(10)
 build_block_around()
+print("Turtle running: ", turtle.is_running())
 
 turtle.go()

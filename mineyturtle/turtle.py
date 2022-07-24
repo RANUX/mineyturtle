@@ -3,11 +3,12 @@ import time
 
 class Turtle:
     
-    def __init__(self, mt: miney.Minetest, turtle_id: int, delay: int =1) -> None:
+    def __init__(self, mt: miney.Minetest, turtle_id: int, batch_mode: bool =False, run_delay: int =1) -> None:
         self.mt = mt
         self._id = turtle_id
-        self._delay = delay
+        self._delay = run_delay
         self.commands = []
+        self._batch_mode = batch_mode
     
     def right(self):
         self.move_right()
@@ -84,26 +85,45 @@ class Turtle:
     def build_right(self) -> None:
         self._add_cmd("buildRight", 1)
 
+    def is_running(self) -> bool:
+        return self.mt.lua.run(f"""
+            local t = computertest.turtles[{self._id}]
+            return coroutine.status(t.coroutine) ~= "dead"
+        """)
+
+    def get_pos(self) -> dict:
+        return self.mt.lua.run(f"""
+            local t = computertest.turtles[{self._id}]
+            return t:getLoc()
+        """)
+
+    @property
+    def position(self) -> dict:
+        return self.get_pos()
+
+    def get_loc_relative(self, num_forward, num_up,num_right) -> dict:
+        return self.mt.lua.run(f"""
+            local t = computertest.turtles[{self._id}]
+            return t:getLocRelative({num_forward}, {num_up}, {num_right})
+        """)
+
+    def set_batch_mode(self, batch_mode: bool) -> None:
+        self._batch_mode = batch_mode
+
     def _add_cmd(self, command: str, *args) -> None:
-        self.commands.append(self._build_cmd(command, *args))
+        if self._batch_mode:
+            self.commands.append(self._build_cmd(command, *args))
+        else:
+            self.commands.append(self._build_cmd(command, *args))
+            self.go()
 
     def _build_cmd(self, command: str, *args) -> str:
         return f"turtle:{command}({','.join(map(str, args))})"
 
-    def _run_cmd(self, command: str) -> None:
-        self.mt.lua.run(f"""
-            local function getTurtle(id) return computertest.turtles[id] end
-            local t = getTurtle({self._id})
-            local command = "function init(turtle) return turtle:{command}() end"
-            t:upload_code_to_turtle(minetest.get_player_by_name("{self.mt.playername}"), command, false)
-        """)
-        time.sleep(self._delay)
-
     def go(self) -> None:
         commands = ';'.join(self.commands)
         self.mt.lua.run(f"""
-            local function getTurtle(id) return computertest.turtles[id] end
-            local t = getTurtle({self._id})
+            local t = computertest.turtles[{self._id}]
             local command = "function init(turtle) {commands} end"
             t:upload_code_to_turtle(minetest.get_player_by_name("{self.mt.playername}"), command, false)
         """)
