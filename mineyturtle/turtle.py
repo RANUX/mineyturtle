@@ -25,6 +25,9 @@ class Turtle:
     
     def up(self):
         self.move_up()
+
+    def down(self):
+        self.move_down()
         
     def move_forward(self) -> None:
         self._add_cmd("moveForward")
