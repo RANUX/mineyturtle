@@ -30,10 +30,21 @@ python -m venv venv
 pip install -r requirements.txt
 ```
 # How to run
+#### In mineysanbox
 1. Run minetest
-2. Connect to the server
-3. Grant privileges to `give`: `/grant <player> give`
-4. Use `/give <player> computertest:turtle` to give a turtle to a player
-5. cd to examples and open run_turtle.py
-6. Change playername and password or set Minetest() without arguments if you connect to localserver
-7. Run `python run_turtle.py`
+2. Play world or Connect to the server
+3. Grant privileges to `give`: `/grant <player> give`. For single player <player> enter `/grant singleplayer give`
+4. Use `/give <player> computertest:turtle` to give a turtle to a player. For single player: `/give singleplayer computertest:turtle`
+5. Switch to Python IDLE and run test code:
+ ```python
+import miney
+from mineyturtle import Turtle
+mt = miney.Minetest()
+turtle = Turtle(mt, 1)
+turtle.forward()
+ ```
+  
+####  Out of mineysandbox
+1. cd to examples and open run_turtle.py
+2. Change playername and password or set Minetest() without arguments if you connect to localserver
+3. Run `python run_turtle.py`
