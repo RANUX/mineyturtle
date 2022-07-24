@@ -6,9 +6,24 @@ Download and install mineysandbox:
 How to install mineysandbox:
 [https://miney.readthedocs.io/en/latest/quickstart.html#installation](https://miney.readthedocs.io/en/latest/quickstart.html#installation)
 
+# how to install for mineysandbox
+Download latest version: 
+Open command prompt and go to miney folder
+```
+cd path_to_miney_folder\miney_x64\Python>
+```
+Install package
+```
+python.exe -m pip install git+https://github.com/RANUX/mineyturtle.git@main#egg=mineyturtle
+```
+Install computer test mod:
+1. Download forket computertest archive: https://github.com/RANUX/Computertest
+2. Extract to miney_x64\Minetest\mods
+3. Run mine miney_launcher.exe, click to `Open Minetest`
+4. Chose world and click Settings
+5. Select mod computertest and enable it
 
-
-# How to setup
+# How to setup miney independent from mineysandbox
 ```
 python -m venv venv
 . venv/bin/activate
