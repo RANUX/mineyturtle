@@ -40,9 +40,9 @@ pip install -r requirements.txt
 import miney
 from mineyturtle import Turtle
 mt = miney.Minetest()
-turtle = Turtle(mt, 1)
+turtle = Turtle(mt, mt.player[0], 1)
 turtle.forward()
- ```
+```
   
 ####  Out of mineysandbox
 1. cd to examples and open run_turtle.py

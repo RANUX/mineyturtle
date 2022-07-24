@@ -14,7 +14,7 @@ print("Connected to", mt)
 mt.chat.send_to_all("Turtle start")
 playerPos = mt.player[0].position
 
-turtle = Turtle(mt, 1, batch_mode=True)
+turtle = Turtle(mt, mt.player[0], 1, batch_mode=True)
 
 print("Turtle position:", turtle.position)
 print("Get loc relative:", turtle.get_loc_relative(10, 10, 10))

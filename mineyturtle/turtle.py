@@ -3,12 +3,13 @@ import time
 
 class Turtle:
     
-    def __init__(self, mt: miney.Minetest, turtle_id: int, batch_mode: bool =False, run_delay: int =1) -> None:
+    def __init__(self, mt: miney.Minetest, player: miney.player.Player, turtle_id: int, batch_mode: bool =False, run_delay: int =1) -> None:
         self.mt = mt
         self._id = turtle_id
         self._delay = run_delay
         self.commands = []
         self._batch_mode = batch_mode
+        self._player = player
     
     def right(self):
         self.move_right()
@@ -125,7 +126,7 @@ class Turtle:
         self.mt.lua.run(f"""
             local t = computertest.turtles[{self._id}]
             local command = "function init(turtle) {commands} end"
-            t:upload_code_to_turtle(minetest.get_player_by_name("{self.mt.playername}"), command, false)
+            t:upload_code_to_turtle(minetest.get_player_by_name("{self._player.name}"), command, false)
         """)
         self.commands = []
         time.sleep(self._delay)
