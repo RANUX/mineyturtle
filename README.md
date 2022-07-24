@@ -33,13 +33,14 @@ pip install -r requirements.txt
 #### In mineysanbox
 1. Run minetest
 2. Play world or Connect to the server
-3. Grant privileges to `give`: `/grant <player> give`. For single player <player> enter `/grant singleplayer give`
-4. Use `/give <player> computertest:turtle` to give a turtle to a player. For single player: `/give singleplayer computertest:turtle`
+3. Grant privileges to `give`: `/grant <player> give`. For single player <player> enter `/grant MineyPlayer give`
+4. Use `/give <player> computertest:turtle` to give a turtle to a player. For single player: `/give MineyPlayer computertest:turtle`
 5. Switch to Python IDLE and run test code:
  ```python
 import miney
 from mineyturtle import Turtle
 mt = miney.Minetest()
+# print(mt.player[0])  # get player name
 turtle = Turtle(mt, mt.player[0], 1)
 turtle.forward()
 ```
