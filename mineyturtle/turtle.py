@@ -66,8 +66,23 @@ class Turtle:
     def turn_left(self) -> None:
         self._add_cmd("turnLeft")
 
-    def build_forward(self, slot_number: int) -> None:
-        self._add_cmd("buildForward", slot_number)
+    def build_forward(self) -> None:
+        self._add_cmd("buildForward", 1)
+
+    def build_backward(self) -> None:
+        self._add_cmd("buildBackward", 1)
+
+    def build_up(self) -> None:
+        self._add_cmd("buildUp", 1)
+
+    def build_down(self) -> None:
+        self._add_cmd("buildDown", 1)
+
+    def build_left(self) -> None:
+        self._add_cmd("buildLeft", 1)
+
+    def build_right(self) -> None:
+        self._add_cmd("buildRight", 1)
 
     def _add_cmd(self, command: str, *args) -> None:
         self.commands.append(self._build_cmd(command, *args))

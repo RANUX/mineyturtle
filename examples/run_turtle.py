@@ -14,18 +14,29 @@ print("Connected to", mt)
 mt.chat.send_to_all("Turtle start")
 playerPos = mt.player[0].position
 
-
 turtle = Turtle(mt, 1)
 
-# for i in range(6):
-#     turtle.move_down()
+def mine_forward_blocks(n):
+    for _ in range(n):
+        turtle.mine_forward()
+        turtle.forward()
 
-#turtle.turn_left()
-#turtle.move_down()
-turtle.mine_forward()
-turtle.move_forward()
-turtle.build_forward(1)  # TODO: build_forward() is not implemented yet
-#turtle.build_forward(3)
-#turtle.move_forward()
+def mine_backward_blocks(n):
+    for _ in range(n):
+        turtle.mine_backward()
+        turtle.backward()
+
+def build_block_around():
+    turtle.build_forward()
+    turtle.build_backward()
+    turtle.build_left()
+    turtle.build_right()
+    turtle.build_up()
+    turtle.build_down()
+
+
+mine_forward_blocks(20)
+mine_backward_blocks(20)
+build_block_around()
 
 turtle.go()
