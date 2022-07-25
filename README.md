@@ -11,7 +11,7 @@ Download and install mineysandbox:
 How to install mineysandbox:
 [https://miney.readthedocs.io/en/latest/quickstart.html#installation](https://miney.readthedocs.io/en/latest/quickstart.html#installation)
 
-# how to install for mineysandbox
+## how to install for mineysandbox
 Download latest version: 
 Open command prompt and go to miney folder
 ```
@@ -28,13 +28,13 @@ Install computer test mod:
 4. Chose world and click Settings
 5. Select mod computertest and enable it
 
-# How to setup miney independent from mineysandbox
+## How to setup miney independent from mineysandbox
 ```
 python -m venv venv
 . venv/bin/activate
 pip install -r requirements.txt
 ```
-# How to run
+## How to run
 #### In mineysanbox
 1. Run minetest
 2. Play world or Connect to the server
