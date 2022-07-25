@@ -1,7 +1,12 @@
 
-# Requirements
+# How to run MineySandbox with Turtle on Windows
 Download and install mineysandbox with Computertest + MineyTurtle: 
 [https://github.com/RANUX/mineyturtle/releases/](https://github.com/RANUX/mineyturtle/releases/)
+
+## How to build custom MineySandbox
+
+Download and install mineysandbox:
+[https://github.com/miney-py/miney_distribution/releases](https://github.com/miney-py/miney_distribution/releases)
 
 How to install mineysandbox:
 [https://miney.readthedocs.io/en/latest/quickstart.html#installation](https://miney.readthedocs.io/en/latest/quickstart.html#installation)
