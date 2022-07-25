@@ -1,7 +1,7 @@
 
 # Requirements
-Download and install mineysandbox: 
-[https://github.com/miney-py/miney_distribution/releases](https://github.com/miney-py/miney_distribution/releases)
+Download and install mineysandbox with Computertest + MineyTurtle: 
+[https://github.com/RANUX/mineyturtle/releases/](https://github.com/RANUX/mineyturtle/releases/)
 
 How to install mineysandbox:
 [https://miney.readthedocs.io/en/latest/quickstart.html#installation](https://miney.readthedocs.io/en/latest/quickstart.html#installation)
